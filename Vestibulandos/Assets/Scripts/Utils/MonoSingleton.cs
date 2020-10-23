@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Resources;
 using UnityEngine;
-using Util;
+using Utils;
 
-namespace Utils
+namespace Utils.Singletons
 {
     public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
     {
