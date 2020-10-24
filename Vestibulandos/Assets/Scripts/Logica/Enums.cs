@@ -14,3 +14,11 @@ public enum AreaConhecimento
 
     Todos,
 }
+
+public enum TipoQuestao
+{
+    A,
+    B,
+    C,
+    D,
+}
