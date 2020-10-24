@@ -33,6 +33,19 @@ public class GameManager : MonoSingleton<GameManager>
                 return;
             }
         }
+
+        Initialize();
+    }
+
+    private bool Initialize()
+    {
+        if(!DataManager.GetInstance().LoadData())
+        {
+            LoggerHelper.LogError("Failed to load the data.");
+            return false;
+        }
+
+        return true;
     }
 
     // Start is called before the first frame update

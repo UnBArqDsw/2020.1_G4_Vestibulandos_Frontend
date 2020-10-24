@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Resource>
+    <Metadata>
+        <Questao ID="1" Tipo="2" Anunciado="Lorem impsusm bla bla bla bla!!" NumeroAlternativa="5" Alternativa_0="incorreta" Alternativa_1="correta" Alternativa_2="incorreta" Alternativa_3="incorreta" Alternativa_4="incorreta" Alternativa_Resposta="1"/>
+    </Metadata>
+</Resource>
