@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoSingleton<UIManager>
 {
     [SerializeField]
-    private CategoryBtnScript m_categoriaBotao;
+    private CategoriaBotaoComponente m_categoriaBotao;
 
     [SerializeField]
     private GameObject scrollHolder;
@@ -134,9 +134,9 @@ public class UIManager : MonoSingleton<UIManager>
     {
         for (int i = 0; i < GameManager.Instance.QuizData.Count; i++)
         {
-            CategoryBtnScript categoria = Instantiate(m_categoriaBotao, scrollHolder.transform);
+            CategoriaBotaoComponente categoria = Instantiate(m_categoriaBotao, scrollHolder.transform);
 
-            categoria.SetButton(GameManager.Instance.QuizData[i].Categoria, GameManager.Instance.QuizData[i].Questoes.Count);
+            categoria.Inserir(GameManager.Instance.QuizData[i].Categoria, GameManager.Instance.QuizData[i].Questoes.Count);
             
             int index = i;
             categoria.Btn.onClick.AddListener(() => OnCategoriaBtn(index, GameManager.Instance.QuizData[index].Categoria));

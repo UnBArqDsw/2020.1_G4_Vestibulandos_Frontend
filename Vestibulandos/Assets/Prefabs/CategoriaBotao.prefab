@@ -133,9 +133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384814be7a05b694d94dd6f8e50101f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  categoryTitleText: {fileID: 5887309897017903209}
-  scoreText: {fileID: 5887309896293407473}
-  btn: {fileID: 5887309896288119698}
+  m_txtTitulo: {fileID: 5887309897017903209}
+  m_txtPontuacao: {fileID: 5887309896293407473}
+  m_btnBotao: {fileID: 5887309896288119698}
 --- !u!1 &5887309896293407479
 GameObject:
   m_ObjectHideFlags: 0
