@@ -1,64 +1,73 @@
 ﻿using System;
-using System.Resources;
 using UnityEngine;
-using Utils;
 
-namespace Utils.Singletons
+public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
 {
-    public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
+    private static T s_instance;
+
+    private static bool m_bApplicationIsQuitting;
+
+    public static T Instance
     {
-        private static T s_instance;
-        private static bool m_bApplicationIsQuitting;
-
-        public static T Instance
+        get
         {
-            get
-            {
-                if (m_bApplicationIsQuitting) return null;
-                if (s_instance != null) return s_instance;
+            if (m_bApplicationIsQuitting) 
+                return null;
 
-                try
-                {
-                    s_instance = (FindObjectOfType(typeof(T)) as T);
-                    if (s_instance == null)
-                    {
-                        s_instance = new GameObject("[Singleton] " + typeof(T).ToString(), typeof(T)).GetComponent<T>();
-
-                        // Make instance persistent.
-                        DontDestroyOnLoad(s_instance);
-
-                        LoggerHelper.Log(
-                            $"[Singleton] An instance of <color=yellow>{typeof(T)}</color> is needed in the scene, so <color=yellow>'{s_instance}'</color> was created with DontDestroyOnLoad.");
-
-                        s_instance.Init();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    LoggerHelper.LogError(ex.ToString());
-                    return null;
-                }
-
+            if (s_instance != null) 
                 return s_instance;
-            }
-        }
 
-        public void Create() { }
-
-        private void Awake()
-        {
-            if (s_instance == null)
+            try
             {
-                s_instance = (this as T);
+                s_instance = (FindObjectOfType(typeof(T)) as T);
+
+                if (s_instance == null)
+                {
+                    s_instance = new GameObject("[Singleton] " + typeof(T).ToString(), typeof(T)).GetComponent<T>();
+
+                    DontDestroyOnLoad(s_instance);
+
+                    UnityEngine.Debug.Log(
+                        $"[Singleton] An instance of <color=yellow>{typeof(T)}</color> is needed in the scene, so <color=yellow>'{s_instance}'</color> was created with DontDestroyOnLoad.");
+
+                    s_instance.Init();
+                }
             }
+            catch (Exception ex)
+            {
+                UnityEngine.Debug.LogError(ex.ToString());
+                return null;
+            }
+
+            return s_instance;
         }
+    }
 
-        public virtual void Init() { }
+    public static bool IsCreated()
+    {
+        return (s_instance != null);
+    }
 
-        public virtual void OnApplicationQuit()
+    public static void Destroy()
+    {
+        s_instance = default;
+    }
+
+    public void Create() { }
+
+    private void Awake()
+    {
+        if (s_instance == null)
         {
-            s_instance = null;
-            m_bApplicationIsQuitting = true;
+            s_instance = (this as T);
         }
+    }
+
+    public virtual void Init() { }
+
+    public virtual void OnApplicationQuit()
+    {
+        s_instance = null;
+        m_bApplicationIsQuitting = true;
     }
 }
