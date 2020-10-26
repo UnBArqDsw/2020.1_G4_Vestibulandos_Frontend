@@ -1,63 +1,169 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Utils;
-using Utils.Singletons;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoSingleton<UIManager>
 {
     [SerializeField]
-    private Canvas m_canvas = null;
+    private CategoryBtnScript m_categoriaBotao;
 
     [SerializeField]
-    private InicioUI m_inicio = null;
+    private GameObject scrollHolder;
 
     [SerializeField]
-    private PartidaUI m_partida = null;
+    private Text m_txtPontuacao;
 
-    public InicioUI InicioUI => m_inicio;
+    [SerializeField]
+    private Text m_txtTempo;
 
-    public PartidaUI PartidaUI => m_partida;
+    [SerializeField]
+    private List<Image> m_listVida;
 
-    private void Awake()
+    [SerializeField]
+    private GameObject m_goFimJogo;
+
+    [SerializeField]
+    private GameObject m_goInicio;
+
+    [SerializeField]
+    private GameObject m_goPartida;
+
+    [SerializeField]
+    private Color m_colorCorreto;
+
+    [SerializeField]
+    private Color m_colorErrado;
+
+    [SerializeField]
+    private Color m_colorNormal;
+
+    [SerializeField]
+    private Image m_imgAnuciado;
+
+    [SerializeField]
+    private Text m_txtAnunciado;
+
+    [SerializeField]
+    private List<Button> m_listRespostas;
+
+    private IQuestao atualQuestao;
+    private bool respondido = false;
+
+    public Text Tempo => m_txtTempo;
+    public Text Pontuacao => m_txtPontuacao;
+    public GameObject FimJogo => m_goFimJogo;
+
+    private void Start()
     {
-        if (!Initialize())
+        for (int i = 0; i < m_listRespostas.Count; i++)
         {
-            LoggerHelper.LogError("Failed to init the UI Manager.");
-            return;
+            Button localBtn = m_listRespostas[i];
+            localBtn.onClick.AddListener(() => OnClick(localBtn));
         }
+
+        CriarCategoriaBtns();
     }
 
-    private bool Initialize()
+    public void AdicionarQuestao(IQuestao questao)
     {
-        if (m_canvas == null)
+        atualQuestao = questao;
+
+        switch (questao.TipoDadosQuestao)
         {
-            var trCanvas = GameManager.Instance.MainCamera.transform.Find("Canvas");
-            if (trCanvas == null)
+            case TipoDadosQuestao.Texto:
+                {
+                    m_imgAnuciado.transform.parent.gameObject.SetActive(false);
+                }
+                break;
+            case TipoDadosQuestao.Imagem:
+                {
+                    m_imgAnuciado.transform.parent.gameObject.SetActive(true);
+                    m_imgAnuciado.transform.gameObject.SetActive(true);
+                    //questionImg.sprite = question.Imagem;
+                }
+                break;
+        }
+
+        m_txtAnunciado.text = questao.Anunciado;
+
+        if (questao.TipoQuestao == TipoQuestao.C)
+        {
+            QuestaoC q = questao as QuestaoC;
+            List<string> respostas = ShuffleList.ShuffleListItems<string>(q.Opcoes);
+
+            for (int i = 0; i < respostas.Count; i++)
             {
-                m_canvas = trCanvas.GetComponent<Canvas>();
+                m_listRespostas[i].GetComponentInChildren<Text>().text = respostas[i];
+                m_listRespostas[i].name = respostas[i];
+                m_listRespostas[i].image.color = m_colorNormal;
             }
         }
 
-        var main = m_canvas.transform.Find("Background");
-
-        m_inicio = main.Find("Inicio").GetComponent<InicioUI>();
-        m_partida = main.Find("Partida").GetComponent<PartidaUI>();
-
-        return true;
+        respondido = false;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void ReduzirVida(int vida)
     {
-
+        m_listVida[vida].color = Color.red;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnClick(Button btn)
     {
+        if (GameManager.Instance.Estado == JogoEstado.Jogando)
+        {
+            if (!respondido)
+            {
+                respondido = true;
 
+                if (GameManager.Instance.Resposta(btn.name))
+                {
+                    //btn.image.color = correctCol;
+                    StartCoroutine(BlinkImg(btn.image));
+                }
+                else
+                {
+                    btn.image.color = m_colorErrado;
+                }
+            }
+        }
     }
 
+    void CriarCategoriaBtns()
+    {
+        for (int i = 0; i < GameManager.Instance.QuizData.Count; i++)
+        {
+            CategoryBtnScript categoria = Instantiate(m_categoriaBotao, scrollHolder.transform);
 
+            categoria.SetButton(GameManager.Instance.QuizData[i].Categoria, GameManager.Instance.QuizData[i].Questoes.Count);
+            
+            int index = i;
+            categoria.Btn.onClick.AddListener(() => OnCategoriaBtn(index, GameManager.Instance.QuizData[index].Categoria));
+        }
+    }
+
+    private void OnCategoriaBtn(int id, string categoria)
+    {
+        GameManager.Instance.Iniciar(id, categoria);
+
+        m_goInicio.SetActive(false);
+        m_goPartida.SetActive(true);
+    }
+
+    IEnumerator BlinkImg(Image image)
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            image.color = Color.white;
+            yield return new WaitForSeconds(0.1f);
+            image.color = m_colorCorreto;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    public void OnNovamenteBtn()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
