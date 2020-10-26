@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8a2b9e2a607dd2143b58c44bc32410b4
+guid: 4bd8a13f22a462641bfce20c36811c24
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Electronic Highway Sign
+  fontName: Passion One
   fontNames:
-  - Electronic Highway Sign
+  - Passion One
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
