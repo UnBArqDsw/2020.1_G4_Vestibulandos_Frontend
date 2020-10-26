@@ -42,7 +42,7 @@ public class GameManager : MonoSingleton<GameManager>
         m_fAtualTempo = m_nTempo;
 
         m_scriptableQuestoa = m_listQuestoesData[categoriaId];
-        m_listQuestoes.AddRange(m_scriptableQuestoa.Questoes);
+        m_listQuestoes.AddRange(m_scriptableQuestoa.QuestoesC);
 
         SelecionarQuestao();
         m_enEstado = JogoEstado.Jogando;

@@ -13,40 +13,12 @@ MonoBehaviour:
   m_Name: QuestionsData
   m_EditorClassIdentifier: 
   Categoria: ASDASD
-  Questoes:
-  - Anunciado: AAAAAAAAAAA
-    TipoQuestao: 0
+  QuestoesC:
+  - Anunciado: SIDAJSDA
     Imagem: {fileID: 0}
     Opcoes:
-    - asdasd
-    - dsad
-    - zxc
-    - wsdw
-    RespostaCorreta: asdasd
-  - Anunciado: CCCCCCCCCC
-    TipoQuestao: 0
-    Imagem: {fileID: 0}
-    Opcoes:
-    - bbb
-    - vvvv
-    - xxxxx
-    - cccc
-    RespostaCorreta: xxxxx
-  - Anunciado: 344sdcwdc
-    TipoQuestao: 0
-    Imagem: {fileID: 0}
-    Opcoes:
-    - 123124
-    - 1222
-    - 222
-    - 21111
-    RespostaCorreta: 222
-  - Anunciado: jujujuj
-    TipoQuestao: 0
-    Imagem: {fileID: 0}
-    Opcoes:
-    - wwwwww
-    - sssss
-    - aaaaa
-    - qqqq
-    RespostaCorreta: aaaaa
+    - xvwsv
+    - wwef
+    - saasd
+    - asaq
+    RespostaCorreta: xvwsv

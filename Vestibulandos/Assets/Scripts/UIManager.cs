@@ -74,23 +74,24 @@ public class UIManager : MonoSingleton<UIManager>
         {
             case TipoDadosQuestao.Texto:
                 {
-                    m_imgAnuciado.transform.parent.gameObject.SetActive(false);
+                    m_txtAnunciado.transform.gameObject.SetActive(true);
                 }
                 break;
             case TipoDadosQuestao.Imagem:
                 {
-                    m_imgAnuciado.transform.parent.gameObject.SetActive(true);
                     m_imgAnuciado.transform.gameObject.SetActive(true);
                     //questionImg.sprite = question.Imagem;
                 }
                 break;
         }
 
-        m_txtAnunciado.text = questao.Anunciado;
+        //m_txtAnunciado.text = questao.Anunciado;
 
         if (questao.TipoQuestao == TipoQuestao.C)
         {
             QuestaoC q = questao as QuestaoC;
+            m_txtAnunciado.text = q.Anunciado;
+
             List<string> respostas = ShuffleList.ShuffleListItems<string>(q.Opcoes);
 
             for (int i = 0; i < respostas.Count; i++)
@@ -136,7 +137,7 @@ public class UIManager : MonoSingleton<UIManager>
         {
             CategoriaBotaoComponente categoria = Instantiate(m_categoriaBotao, scrollHolder.transform);
 
-            categoria.Inserir(GameManager.Instance.QuizData[i].Categoria, GameManager.Instance.QuizData[i].Questoes.Count);
+            categoria.Inserir(GameManager.Instance.QuizData[i].Categoria, GameManager.Instance.QuizData[i].QuestoesC.Count);
             
             int index = i;
             categoria.Btn.onClick.AddListener(() => OnCategoriaBtn(index, GameManager.Instance.QuizData[index].Categoria));

@@ -6,5 +6,5 @@ using UnityEngine;
 public class QuestaoScriptableObject : ScriptableObject
 {
     public string Categoria;
-    public List<QuestaoC> Questoes;
+    public List<QuestaoC> QuestoesC;
 }
