@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f611d797432e3f846885b2b12fde5f35, type: 3}
+  m_Name: QuestionEspanol
+  m_EditorClassIdentifier: 
+  Categoria: Espanhol
+  QuestoesC:
+  - Anunciado: "Adelfos Yo soy como las gentes que a mi tierra vinieron \u2014 soy
+      de la raza mora, vieja amiga del sol \u2014, que todo lo ganaron y todo lo
+      perdieron. Tengo el alma de nardo del \xE1rabe espa\xF1ol. Nessa estrofe, o
+      poeta e dramaturgo espanhol Manuel Machado reflete acerca "
+    Imagem: {fileID: 0}
+    Opcoes:
+    - "de sua forma\xE7\xE3o identit\xE1ria plural."
+    - "da condi\xE7\xE3o n\xF4made de seus antepassados."
+    - "da perda sofrida com o processo de migra\xE7\xE3o."
+    - "da d\xEDvida do povo espanhol para com o povo \xE1rabe."
+    - "de sua identifica\xE7\xE3o com os elementos da natureza."
+    RespostaCorreta: "de sua forma\xE7\xE3o identit\xE1ria plural."
+  - Anunciado: "Algunos los llaman generaci\xF3n Y, otros \u201CMillennials\u201D,
+      generaci\xF3n del milenio o incluso \u201CEcho Boomers\u201D. Nacieron y crecieron
+      en una era de r\xE1pido desarrollo de las nuevas tecnolog\xEDas, y casi no
+      recuerdan c\xF3mo era el mundo sin Internet. Son idealistas, impacientes y
+      est\xE1n bien preparados acad\xE9micamente. Muchos de ellos han tenido oportunidad
+      de viajar por el mundo a una edad temprana, de estudiar en las mejores universidades
+      y de trabajar en empresas multinacionales y extranjeras. La generaci\xF3n Y
+      se compone de este tipo de personas que quieren todo a la vez. No est\xE1n
+      dispuestos a soportar un trabajo poco interesante y rutinario, no quieren dejar
+      las cosas buenas para luego. Lo que s\xED quieren es dejar su huella en la
+      historia, vivir una vida interesante, formar parte de algo grande, crecer y
+      desarrollarse, cambiar el mundo que les rodea, y no solo ganar dinero. O texto
+      aponta caracter\xEDsticas e interesses da \u201CGera\xE7\xE3o Y\u201D. Nele,
+      a express\xE3o dejar su huella refere-se a um dos desejos dessa gera\xE7\xE3o,
+      que \xE9 o de"
+    Imagem: {fileID: 0}
+    Opcoes:
+    - conhecer diferentes lugares
+    - "fazer a diferen\xE7a no mundo."
+    - aproveitar todas as oportunidades.
+    - "obter uma forma\xE7\xE3o acad\xEAmica de excel\xEAncia."
+    - "conquistar boas coloca\xE7\xF5es no mundo do trabalho."
+    RespostaCorreta: "fazer a diferen\xE7a no mundo."
