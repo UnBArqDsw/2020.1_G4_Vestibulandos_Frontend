@@ -1,10 +1,15 @@
-﻿using System;
+﻿using Network.Session;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Util;
 
 public class GameManager : MonoSingleton<GameManager>
 {
+    private const string m_strLoginIP = "127.0.0.1";
+    private const int m_iLoginPort = 9500;
+
     [SerializeField]
     private List<QuestaoScriptableObject> m_listQuestoesData;
 
@@ -30,6 +35,73 @@ public class GameManager : MonoSingleton<GameManager>
     public JogoEstado Estado => m_enEstado;
 
     public List<QuestaoScriptableObject> QuizData { get => m_listQuestoesData; }
+
+    private bool m_bIsLoginServerConnected = false;
+
+    private void Start()
+    {
+        // Run the game in background.
+        Application.runInBackground = true;
+
+        // Network.
+        {
+            LoginSession.Instance.EventConnected += OnEventLoginConnected;
+            LoginSession.Instance.EventDisconnected += OnEventLoginDisconnected;
+            LoginSession.Instance.EventDisconnectedByClient += OnEventLoginDisconnectedByClient;
+        }
+
+        ConnectToLoginServer(m_strLoginIP, m_iLoginPort);
+    }
+
+    private void OnDestroy()
+    {
+        // Network.
+        {
+            LoginSession.Instance.EventConnected -= OnEventLoginConnected;
+            LoginSession.Instance.EventDisconnected -= OnEventLoginDisconnected;
+            LoginSession.Instance.EventDisconnectedByClient -= OnEventLoginDisconnectedByClient;
+        }
+    }
+
+    private void OnEventLoginConnected()
+    {
+        LoggerHelper.Log("OnEventLoginConnected() called.");
+
+        // Set login server connected.
+        m_bIsLoginServerConnected = true;
+    }
+
+    public void OnEventLoginDisconnected()
+    {
+        LoggerHelper.Log("OnEventLoginDisconnected() called.");
+
+        // Login Server is disconnected.
+        m_bIsLoginServerConnected = false;
+    }
+
+    public void OnEventLoginDisconnectedByClient()
+    {
+        LoggerHelper.Log("OnEventLoginDisconnectedByClient() called.");
+
+        // Login Server is disconnected.
+        m_bIsLoginServerConnected = false;
+    }
+
+    public void ConnectToLoginServer(string strIP, int iPort)
+    {
+        if (m_bIsLoginServerConnected)
+        {
+            LoggerHelper.LogError("Login Server is already connected.");
+            return;
+        }
+
+        // Set as true, as it is necessary to keep ticking the session to know if you have successfully connected.
+        // If connect successfully, keep as true, otherwise, it will become false.
+        m_bIsLoginServerConnected = true;
+
+        // Connect to the Login Server.
+        LoginSession.Instance.Initialize($"{strIP}:{iPort}");
+    }
 
     public void Iniciar(int categoriaId, string categoria)
     {
