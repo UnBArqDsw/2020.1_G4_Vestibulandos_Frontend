@@ -3908,6 +3908,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_listQuestoesData:
   - {fileID: 11400000, guid: 1b526a90754517b45a4f3dfa7ee9bebd, type: 2}
+  - {fileID: 11400000, guid: be3fc79956ae7f041bc4efca414dafcc, type: 2}
+  - {fileID: 11400000, guid: eea147449f457334fb278ce8a3f38369, type: 2}
   m_nTempo: 60
 --- !u!1 &1991697069
 GameObject:
