@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f611d797432e3f846885b2b12fde5f35, type: 3}
+  m_Name: QuestionPortugues
+  m_EditorClassIdentifier: 
+  Categoria: "Portugu\xEAs"
+  QuestoesC:
+  - Anunciado: "Esporte e cultura: an\xE1lise acerca da esportiviza\xE7\xE3o de pr\xE1ticas
+      corporais nos jogos ind\xEDgenas Nos Jogos dos Povos Ind\xEDgenas, observa-se
+      que as pr\xE1ticas corporais realizadas envolvem elementos tradicionais (como
+      as pinturas e adornos corporais) e modernos (como a regulamenta\xE7\xE3o, a
+      fiscaliza\xE7\xE3o e a padroniza\xE7\xE3o). O arco e flecha e a lan\xE7a, por
+      exemplo, s\xE3o instrumentos tradicionalmente utilizados para a ca\xE7a e a
+      defesa da comunidade na aldeia. Na ocasi\xE3o do evento, esses artefatos foram
+      produzidos pela pr\xF3pria etnia, por\xE9m sua estrutura\xE7\xE3o como \u201Cmodalidade
+      esportiva\u201D promoveu uma semelhan\xE7a entre as t\xE9cnicas apresentadas,
+      com o sentido \xFAnico da competi\xE7\xE3o."
+    Imagem: {fileID: 0}
+    Opcoes:
+    - "padroniza\xE7\xE3o de pinturas e adornos corporais."
+    - "sobreposi\xE7\xE3o de elementos tradicionais sobre os modernos"
+    - "individua\xE7\xE3o das t\xE9cnicas apresentadas em diferentes modalidades."
+    - "legitima\xE7\xE3o das pr\xE1ticas corporais ind\xEDgenas como modalidade esportiva"
+    - "preserva\xE7\xE3o dos significados pr\xF3prios das pr\xE1ticas corporais em
+      cada cultura."
+    RespostaCorreta: "legitima\xE7\xE3o das pr\xE1ticas corporais ind\xEDgenas como
+      modalidade esportiva"
+  - Anunciado: "Inverno! inverno! inverno! Tristes nevoeiros, frios negrumes da longa
+      treva boreal, descampados de gelo cujo limite escapa-nos sempre, desesperadamente,
+      para l\xE1 do horizonte, perp\xE9tua solid\xE3o in\xF3spita, onde apenas se
+      ouve a voz do vento que passa uivando como uma legi\xE3o de lobos, atrav\xE9s
+      da cidade de catedrais e t\xFAmulos de cristal na plan\xEDcie, fantasmas que
+      a miragem povoam e animam, tudo isto: decep\xE7\xF5es, obscuridade, solid\xE3o,
+      desespero e a hora invis\xEDvel que passa como o vento, tudo isto \xE9 o frio
+      inverno da vida. H\xE1 no esp\xEDrito o luto profundo daquele c\xE9u de bruma
+      dos lugares onde a natureza dorme por meses, \xE0 espera do sol avaro que n\xE3o
+      vem."
+    Imagem: {fileID: 0}
+    Opcoes:
+    - "imprecis\xE3o no sentido dos voc\xE1bulos."
+    - 'dramaticidade como elemento expressivo. '
+    - "subjetividade em oposi\xE7\xE3o \xE0 verossimilhan\xE7a."
+    - "valoriza\xE7\xE3o da imagem com efeito persuasivo."
+    - "plasticidade verbal vinculada \xE0 cad\xEAncia mel\xF3dica."
+    RespostaCorreta: "plasticidade verbal vinculada \xE0 cad\xEAncia mel\xF3dica."
+  - Anunciado: "Dizem que Humboldt, naturalista do s\xE9culo XIX, maravilhado pela
+      geografia, flora e fauna da regi\xE3o sul-americana, via seus habitantes como
+      se fossem mendigos sentados sobre um saco de ouro, referindo-se a suas incomensur\xE1veis
+      riquezas naturais n\xE3o exploradas. De alguma maneira, o cientista ratificou
+      nosso papel de exportadores de natureza no que seria o mundo depois da coloniza\xE7\xE3o
+      ib\xE9rica: enxergou-nos como territ\xF3rios condenados a aproveitar os recursos
+      naturais existentes."
+    Imagem: {fileID: 0}
+    Opcoes:
+    - Relativismo cognitivo.
+    - "Materialismo dial\xE9tico."
+    - Racionalismo cartesiano
+    - "Pluralismo epistemol\xF3gico."
+    - "Existencialismo fenomenol\xF3gico."
+    RespostaCorreta: Racionalismo cartesiano
+  - Anunciado: "A rede \xE9, antes de tudo, um instrumento de comunica\xE7\xE3o entre
+      pessoas, um la\xE7o virtual em que as comunidades auxiliam seus membros a aprender
+      o que querem saber. Os dados n\xE3o representam sen\xE3o a mat\xE9ria-prima
+      de um processo intelectual e social vivo, altamente elaborado. Enfim, toda
+      intelig\xEAncia coletiva do mundo jamais dispensar\xE1 a intelig\xEAncia pessoal,
+      o esfor\xE7o individual e o tempo necess\xE1rio para aprender, pesquisar, avaliar
+      e integrar-se a diversas comunidades, sejam elas virtuais ou n\xE3o. A rede
+      jamais pensar\xE1 em seu lugar, fique tranquilo."
+    Imagem: {fileID: 0}
+    Opcoes:
+    - "otimiza\xE7\xE3o do tempo"
+    - confiabilidade dos sites.
+    - "contribui\xE7\xE3o dos usu\xE1rios."
+    - "quantidade de informa\xE7\xE3o."
+    - "colabora\xE7\xE3o de intelectuais."
+    RespostaCorreta: "contribui\xE7\xE3o dos usu\xE1rios."
